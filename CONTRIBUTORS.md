@@ -1,3 +1,4 @@
 # Contributors
 
-* First Last ([@user](https://github.com/user))
+* Micky Hulse ([@mhulse](https://github.com/mhulse))
+* Patrick Sullivan ([@psullivan6](https://github.com/psullivan6))
