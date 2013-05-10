@@ -38,7 +38,7 @@ cheer loudly && be('excited');
 
 #### LEGAL
 
-Copyright &copy; 2013 [Patrick Sullivan](http://psullivan6.com) & [Micky Hulse](http://hulse.me)/[The Register-Guard](https://github.com/registerguard)
+Copyright &copy; 2013 [Patrick Sullivan](http://psullivan6.com) & [Micky Hulse](http://hulse.me) / [The Register-Guard](https://github.com/registerguard)
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:
 
