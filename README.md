@@ -18,7 +18,7 @@ really good information here in the next push, or the push after that
 
 #### DEMO
 
-[![qr code](http://chart.apis.google.com/chart?cht=qr&chl=http://registerguard.github.io/benjamins/demo//&chs=240x240)](http://registerguard.github.io/benjamins/demo//)
+[![qr code](http://chart.apis.google.com/chart?cht=qr&chl=http://registerguard.github.io/benjamins/demo/&chs=240x240)](http://registerguard.github.io/benjamins/demo/)
 
 (Scan QR code with phone and/or click to [view the latest demo](http://registerguard.github.io/benjamins/demo/).)
 
