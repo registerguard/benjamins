@@ -8,7 +8,9 @@ module.exports = function(grunt) {
 		
 		pkg : grunt.file.readJSON('package.json'),
 		
-		/*----------------------------------( META )----------------------------------*/
+		/* #############################################################
+		   JS Header Info
+		   ########################################################## */
 		
 		meta : {
 			
@@ -16,7 +18,9 @@ module.exports = function(grunt) {
 			              ' * <%= pkg.title || pkg.name %>\n' +
 			              '<%= pkg.description ? " * " + pkg.description + "\\n" : "" %>' +
 			              ' *\n' +
+			              '<%= pkg.author.names ? " * @author " + pkg.author.names.one + ", " + pkg.author.names.two + "\\n" : "" %>' +
 			              '<%= pkg.author.name ? " * @author " + pkg.author.name + "\\n" : "" %>' +
+			              '<%= pkg.author.urls ? " * @link " + pkg.author.urls.one + ", " + pkg.author.urls.two + "\\n" : "" %>' +
 			              '<%= pkg.author.url ? " * @link " + pkg.author.url + "\\n" : "" %>' +
 			              '<%= pkg.homepage ? " * @docs " + pkg.homepage + "\\n" : "" %>' +
 			              ' * @copyright Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>.\n' +
@@ -34,12 +38,11 @@ module.exports = function(grunt) {
 			
 		},
 		
-		/*----------------------------------( WATCH )----------------------------------*/
+		/* #############################################################
+		   Watch Changes
+		   ########################################################## */
 		
 		/**
-		 * Run predefined tasks whenever watched file patterns are added, changed
-		 * or deleted.
-		 *
 		 * $ grunt watch
 		 *
 		 * @see https://github.com/gruntjs/grunt-contrib-watch
@@ -51,22 +54,22 @@ module.exports = function(grunt) {
 				
 				files : [
 					
-					'./src/jquery.<%= pkg.name %>.js',
+					'./src/<%= pkg.name %>.js',
 					'../demo/**/*'
 					
 				],
 				
-				tasks : ['default']
+				tasks : ['dev']
 				
 			}
 			
 		},
 		
-		/*----------------------------------( PREFLIGHT )----------------------------------*/
+		/* #############################################################
+		   JS Hinting
+		   ########################################################## */
 		
 		/**
-		 * Validate files with JSHint.
-		 *
 		 * @see http://www.jshint.com/
 		 * @see https://github.com/gruntjs/grunt-contrib-jshint
 		 * @see https://github.com/jshint/jshint/blob/master/src/stable/jshint.js
@@ -84,17 +87,43 @@ module.exports = function(grunt) {
 			init : [
 				
 				'./Gruntfile.js',
-				'./src/jquery.<%= pkg.name %>.js'
+				'./src/<%= pkg.name %>.js'
 				
 			]
 			
 		},
 		
-		/*----------------------------------( 01 )----------------------------------*/
+		/* #############################################################
+		   Conditional calls in demo
+		   ########################################################## */
 		
 		/**
-		 * Clean files and folders.
+		 * Grunt task to automate environment configuration for future tasks.
 		 *
+		 * @see https://github.com/onehealth/grunt-env
+		 */
+		
+		env : {
+			
+			dev : {
+				
+				NODE_ENV : 'DEVELOPMENT'
+				
+			},
+			
+			pro : {
+				
+				NODE_ENV : 'PRODUCTION'
+				
+			}
+			
+		},
+		
+		/* #############################################################
+		   Clean the `pro`-duction directory
+		   ########################################################## */
+		
+		/**
 		 * @see https://github.com/gruntjs/grunt-contrib-clean
 		 */
 		
@@ -106,36 +135,45 @@ module.exports = function(grunt) {
 				
 			},
 			
-			dist : [
+			dev : {
 				
-				'../<%= pkg.name %>/**/*'
+				src : [
+					
+					'../demo/index.html',
+					'../demo/css/**/*'
+					
+				]
 				
-			]
+			},
+			
+			pro : {
+				
+				src : [
+					
+					'../<%= pkg.name %>/<%= pkg.name %>.js'
+					
+				]
+				
+			}
 			
 		},
 		
-		/*----------------------------------( 02 )----------------------------------*/
+		/* #############################################################
+		   Minify the JS
+		   ########################################################## */
 		
 		/**
-		 * Minify files with UglifyJS.
-		 *
 		 * @see https://github.com/gruntjs/grunt-contrib-uglify
 		 * @see http://lisperator.net/uglifyjs/
 		 */
 		
 		uglify : {
 			
-			target : {
-				
-				options : {
-					
-					banner : '<%= meta.banner_short %>'
-					
-				},
+			pro : {
 				
 				files : {
 					
-					'../<%= pkg.name %>/jquery.<%= pkg.name %>.min.js': ['./src/jquery.<%= pkg.name %>.js']
+					'../<%= pkg.name %>/<%= pkg.name %>.min.js' : './src/<%= pkg.name %>.js'
 					
 				}
 				
@@ -143,26 +181,74 @@ module.exports = function(grunt) {
 			
 		},
 		
-		/*----------------------------------( 03 )----------------------------------*/
+		/* #############################################################
+		   Minify the CSS
+		   ########################################################## */
 		
 		/**
-		 * Concatenate files.
-		 *
-		 * @see https://github.com/gruntjs/grunt-contrib-concat
+		 * @see https://github.com/gruntjs/grunt-contrib-less
 		 */
 		
-		concat : {
+		less : {
 			
 			options : {
 				
-				banner : '<%= meta.banner_long %>'
+				compress : true
 				
 			},
 			
-			dist : {
+			dev : {
 				
-				src : ['./src/jquery.<%= pkg.name %>.js'],
-				dest : '../<%= pkg.name %>/jquery.<%= pkg.name %>.js'
+				files : {
+					
+					'../demo/css/ads.css' : '../demo/build/css/ads.less'
+					
+				}
+				
+			},
+			
+			pro : {
+				
+				options : {
+					
+					yuicompress : true
+					
+				},
+				
+				files : {
+					
+					'../demo/css/ads.min.css' : '../demo/build/css/ads.less'
+					
+				}
+				
+			}
+			
+		},
+		
+		/* #############################################################
+		   Preprocess Files
+		   ########################################################## */
+		
+		/**
+		 * Grunt task around preprocess npm module.
+		 *
+		 * @see https://github.com/onehealth/grunt-preprocess
+		 * @see https://github.com/onehealth/preprocess
+		 */
+		
+		preprocess : {
+			
+			dev : {
+				
+				src : '../demo/build/index.html',
+				dest : '../demo/index.html'
+				
+			},
+			
+			pro : {
+				
+				src : '../demo/build/index.html',
+				dest : '../demo/index.html'
 				
 			}
 			
@@ -182,8 +268,18 @@ module.exports = function(grunt) {
 	
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	
+	grunt.loadNpmTasks('grunt-contrib-less');
+	
+	grunt.loadNpmTasks('grunt-preprocess');
+	
+	grunt.loadNpmTasks('grunt-env');
+	
 	//----------------------------------
 	
-	grunt.registerTask('default', ['jshint', 'clean', 'uglify', 'concat']);
+	grunt.registerTask('default', ['jshint']);
+	
+	grunt.registerTask('dev', ['jshint', 'env:dev', 'clean:dev', 'less:dev', 'preprocess:dev']);
+	
+	grunt.registerTask('pro', ['jshint', 'env:pro', 'clean:pro', 'uglify:pro', 'less:pro', 'preprocess:pro']);
 	
 };

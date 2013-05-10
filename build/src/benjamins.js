@@ -1,14 +1,40 @@
-/*
-	@TODO:
-		1. Optimize variables (i.e. go back to putting JSON vars in JS vars).
-		2. Add comments, Micky style.
-		3. ...
-*/
-;(function($, window, document, undefined) {
+(function($, window, document, undefined) {
 	
-	// "use strict";
+	/**
+	 * Function-level strict mode syntax.
+	 *
+	 * @see rgne.ws/XcZgn8
+	 */
+	
+	'use strict';
+	
+	//--------------------------------------------------------------------------
+	//
+	// Local "globals":
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * Javascript console.
+	 *
+	 * @see rgne.ws/12p2bvl
+	 */
 	
 	var console = window.console || { log : function() {}, warn : function() {} },
+	
+	//----------------------------------
+	
+	/**
+	 * The plugin namespace.
+	 */
+	
+	NS = 'benjies',
+	
+	//--------------------------------------------------------------------------
+	//
+	// Defaults and settings:
+	//
+	//--------------------------------------------------------------------------
 	
 	defaults = {
 		
@@ -17,7 +43,19 @@
 		section : '',
 		page    : ''
 		
-	},
+	}, // defaults
+	
+	//--------------------------------------------------------------------------
+	//
+	// Public methods:
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * Methods object.
+	 *
+	 * @type { object }
+	 */
 	
 	methods = {
 		
@@ -95,11 +133,11 @@
 				
 				console.warn('MatchMedia is not supported');
 				
-			};
+			}
 			
 			function breakChange (mqC) {
 				
-				var one, two, three, four = '';
+				var one, two, three, four = '',
 				a     = 'alpha',
 				b     = 'bravo',
 				c     = 'charlie',
@@ -119,19 +157,19 @@
 							
 							var screen = ad.ad_type[0].screen[0];
 							
-							if(screen[a] && screen[b] && screen[c] && screen[d] && flag ==1){
+							if (screen[a] && screen[b] && screen[c] && screen[d] && flag ==1){
 								
-								if ($('#' + ad.ad_type[0].slug).length) OX_ads.setAdUnitSlotId(ad.id, ad.ad_type[0].slug);
+								if ($('#' + ad.ad_type[0].slug).length){ OX_ads.setAdUnitSlotId(ad.id, ad.ad_type[0].slug); }
 								
 							} else{
 								
 								if (screen[one] && screen[two] && !screen[three] && !screen[four]){
 									
-									if ($('#' + ad.ad_type[0].slug).length) OX_ads.setAdUnitSlotId(ad.id, ad.ad_type[0].slug);
+									if ($('#' + ad.ad_type[0].slug).length){ OX_ads.setAdUnitSlotId(ad.id, ad.ad_type[0].slug); }
 									
-								};
+								}
 								
-							}; // screen check
+							} // screen check
 							
 						}); // ad loop
 						
@@ -139,7 +177,7 @@
 					
 					OX_ads.load();
 					
-				};
+				}
 				
 				flag++;
 				
@@ -147,7 +185,7 @@
 			
 		})();
 		
-	}
+	};
 	
 	$.ad_manager = function(method) {
 		
