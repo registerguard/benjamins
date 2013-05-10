@@ -1,0 +1,30 @@
+.headah h1,
+.headah p,
+.sub_headah h2,
+.sub_headah p{
+	font-family: Arial, sans-serif;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.headah{
+	background-color: #999;
+	padding: 5px;
+}
+.sub_headah{
+	background-color: #eee;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+	.headah h1{
+		font-size: 16px;
+	}
+	.sub_headah h2{
+		font-size: 14px;
+	}
+	.headah p,
+	.subheadah p{
+		font-size: 12px;
+	}

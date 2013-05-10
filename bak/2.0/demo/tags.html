@@ -15,10 +15,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	
-	<!-- [START] Style Dependencies -->
 	<link rel="stylesheet" type="text/css" href="http://registerguard.github.com/bulldog/build/files/css/bulldog.css">
+	<!--
+	<link rel="stylesheet" href="http://assets.registerguard.com/v5.0/ad_manager/1.0/demo/plugins/css/normalize.css">
+	<link rel="stylesheet" href="http://assets.registerguard.com/v5.0/ad_manager/1.0/demo/plugins/css/wiffle.css">
+	<link rel="stylesheet" href="http://assets.registerguard.com/v5.0/ad_manager/1.0/demo/plugins/css/onoff.css">
+	-->
 	<link rel="stylesheet" href="http://advertising.registerguard.com/static/ad_manager/1.0/css/ad_manager.css">
-	<!-- [START] Style Dependencies -->
 	
 	<link rel="stylesheet" href="css/demo.css">
 	
@@ -59,7 +62,7 @@
 		
 		<!-- //////////////////// LEADERBOARD TOP \\\\\\\\\\\\\\\\\\\\ -->
 		
-		<div class="mobile_banner advert Aon Bon"><div id="mobile-banner-1"></div></div>
+		<div class="mobile_banner advert Aon Bon"><div id="mobile_banner-top"></div></div>
 		
 		<div class="leaderboard advert Con Don"><div id="leaderboard-1"></div></div>
 		
@@ -77,7 +80,7 @@
 		
 		<!-- //////////////////// MEDIUM RECTANGLE 1 \\\\\\\\\\\\\\\\\\\\ -->
 		
-		<div class="medium_rectangle advert Aon Bon"><div id="medium-rectangle-3"></div></div>
+		<div class="medium_rectangle advert Aon Bon"><div id="medium_rectangle_1-mobile"></div></div>
 		
 		<div class="medium_rectangle advert Con Don"><div id="medium-rectangle-1"></div></div>
 		
@@ -95,7 +98,7 @@
 		
 		<!-- //////////////////// MEDIUM RECTANGLE 2 \\\\\\\\\\\\\\\\\\\\ -->
 		
-		<div class="medium_rectangle advert Aon Bon"><div id="medium-rectangle-4"></div></div>
+		<div class="medium_rectangle advert Aon Bon"><div id="medium_rectangle_2-mobile"></div></div>
 		
 		<div class="medium_rectangle advert Con Don"><div id="medium-rectangle-2"></div></div>
 		
@@ -254,46 +257,42 @@
 		
 	</div> <!-- /.wiffle -->
 	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="http://assets.registerguard.com/v5.0/ad_manager/1.0/demo/plugins/js/jquery.jsonp-2.4.0.min.js"></script>
 	
-	<!-- OpenX Call: -->
 	<script type="text/javascript" src="http://ox-d.registerguard.com/w/1.0/jstag"></script>
-	
-	<!-- [START] Script Dependencies -->
-	<script src="./js/jquery.jsonp.js"></script>
-	<script src="./js/matchMedia.js"></script>
-	<script src="./js/matchMedia.listener.js"></script>
-	<!-- [END] Script Dependencies -->
-	
-	<script src="../benjamins/benjamins.js"></script>
+	<script src="../js/matchMedia.js"></script>
+	<script src="../js/matchMedia.listener.js"></script>
+	<script src="../js/ad_manager.js"></script>
 	
 	<script>
 		
 		$(document).ready(function() {
 			
-			$.ad_manager({
-				parent  : 'sports',
-				section : 'football',
-				page    : 'section'
-			});
+			ROS_ads = OX();
+			ROS_ads.addPage("14229");
+			ROS_ads.addPage("12939");
+			if ($('#leaderboard-1').length > 0)      ROS_ads.setAdUnitSlotId("258660","leaderboard-1");
+			if ($('#medium-rectangle-1').length > 0) ROS_ads.setAdUnitSlotId("258662","medium-rectangle-1");
+			if ($('#medium-rectangle-2').length > 0) ROS_ads.setAdUnitSlotId("258663","medium-rectangle-2");
+			if ($('#button-1').length > 0)      ROS_ads.setAdUnitSlotId("327383","button-1");
+			if ($('#button-2').length > 0)      ROS_ads.setAdUnitSlotId("328176","button-2");
+			if ($('#leaderboard-2').length > 0) ROS_ads.setAdUnitSlotId("328209","leaderboard-2");
+			if ($('#custom-1').length > 0)      ROS_ads.setAdUnitSlotId("278420","custom-1");
+			ROS_ads.load();
+			
+			/*
+			OX_ads = OX();
+			OX_ads.addPage("12939");
+			if ($('#leaderboard-1').length > 0)      OX_ads.setAdUnitSlotId("258660","leaderboard-1");
+			if ($('#medium-rectangle-1').length > 0) OX_ads.setAdUnitSlotId("258662","medium-rectangle-1");
+			if ($('#medium-rectangle-2').length > 0) OX_ads.setAdUnitSlotId("258663","medium-rectangle-2");
+			OX_ads.load();
+			*/
 			
 		});
 		
-		/*
-		DESKTOP:
-		15115		Ad Unit Group
-		409077		Leaderboard
-		409078		Medium Rectangle 1
-		409079		Medium Rectangle 2
-		
-		MOBILE:
-		15114		An Unit Group
-		409073		Mobile Banner
-		409074		Medium Rectangle 3
-		409075		Medium Rectangle 4
-		*/
-		
 	</script>
-	
+		
 </body>
 </html>

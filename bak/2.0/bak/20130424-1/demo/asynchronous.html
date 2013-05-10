@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+<head>
+	
+	<meta charset="utf-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	
+	<title>Ads - JSON | 2.0</title>
+	
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	
+	<link rel="stylesheet" type="text/css" href="http://advertising.registerguard.com/static/ad_manager/1.0/demo/plugins/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="http://advertising.registerguard.com/static/ad_manager/1.0/demo/plugins/css/onoff.css">
+	<link rel="stylesheet" type="text/css" href="http://advertising.registerguard.com/static/ad_manager/1.0/demo/plugins/css/wiffle.css">
+	
+	<link rel="stylesheet" href="http://assets.registerguard.com/v5.0/ad_manager/1.0/demo/demo.css">
+	
+	<link rel="stylesheet" type="text/css" href="http://advertising.registerguard.com/static/ad_manager/1.0/css/onmediaquery.css">
+	<link rel="stylesheet" type="text/css" href="http://advertising.registerguard.com/static/ad_manager/1.0/css/ad_manager.css">
+	
+
+	
+	<!--[if (lt IE 9) & (!IEMobile)]>
+		<script src="plugins/js/respond.min.js"></script>
+	<![endif]-->
+	
+</head>
+<body>
+	
+	<h1>Asynchronous Ads</h1>
+	
+	<!-- //////////////////// LEADERBOARD TOP \\\\\\\\\\\\\\\\\\\\ -->
+	
+	<div class="mobile_banner advert Aon Bon"><div id="mobile_banner-top"></div></div>
+	
+	<div class="leaderboard advert Con Don"><div id="leaderboard-top"></div></div>
+	
+	<!-- \\\\\\\\\\\\\\\\\\\\ LEADERBOARD TOP //////////////////// -->
+	
+	<!-- //////////////////// MEDIUM RECTANGLE 1 \\\\\\\\\\\\\\\\\\\\ -->
+	
+	<div class="medium_rectangle advert Aon Bon"><div id="medium_rectangle_1-mobile"></div></div>
+	
+	<div class="medium_rectangle advert Con Don"><div id="medium_rectangle_1-desktop"></div></div>
+	
+	<!-- \\\\\\\\\\\\\\\\\\\\ MEDIUM RECTANGLE 1 //////////////////// -->
+	
+	
+	<!-- //////////////////// MEDIUM RECTANGLE 2 \\\\\\\\\\\\\\\\\\\\ -->
+	
+	<div class="medium_rectangle advert Aon Bon"><div id="medium_rectangle_2-mobile"></div></div>
+	
+	<div class="medium_rectangle advert Con Don"><div id="medium_rectangle_2-desktop"></div></div>
+	
+	<!-- \\\\\\\\\\\\\\\\\\\\ MEDIUM RECTANGLE 2 //////////////////// -->
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<script src="../js/matchMedia.js"></script>
+	<script src="../../1.0/js/ad_manager.js"></script>
+	<!-- <script src="http://advertising.registerguard.com/static/ad_manager/1.0/js/ad_manager.js"></script> -->
+	
+	
+	<script src="http://advertising.registerguard.com/static/ad_manager/1.0/demo/plugins/js/jquery.jsonp-2.4.0.min.js"></script>
+	<script src="http://advertising.registerguard.com/static/ad_manager/1.0/demo/plugins/js/onmediaquery.js"></script>
+	<script>$(document).ready(function() { $.ad_manager({parent : '', section : 'sports', page : 'section' }); });</script>
+	<!--
+	<script>
+			
+			var  queries = [
+				{
+					context : ['alpha', 'bravo'],
+					call_for_each_context : false,
+					match : function() {
+						
+						console.log('SMALL');
+						
+						var OX_s = OX();
+						OX_s.addPage("13736");
+						OX_s.setAdUnitSlotId("302429","mobile_banner-top");
+						OX_s.setAdUnitSlotId("302430","medium_rectangle_1-mobile");
+						OX_s.setAdUnitSlotId("302431","medium_rectangle_2-mobile");
+						OX_s.load();
+						
+					}
+				},
+				{
+					context : ['charlie', 'delta'],
+					call_for_each_context : false,
+					match : function() {
+						
+						console.log('BIG');
+						
+						var OX_l = OX();
+						OX_l.addPage("13736");
+						OX_l.setAdUnitSlotId("302428","leaderboard-top");
+						OX_l.setAdUnitSlotId("302430","medium_rectangle_1-desktop");
+						OX_l.setAdUnitSlotId("302431","medium_rectangle_2-desktop");
+						OX_l.load();
+						
+					}
+				}
+			];
+			
+			window.onload = function() { oMQ.init(queries); }
+			
+	</script>
+	-->
+	
+	<script src="http://ox-d.registerguard.com/w/1.0/jstag"></script>
+
+</body>
+</html>
