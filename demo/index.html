@@ -7,7 +7,7 @@
 	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 	
-	<title>Ads - JSON | 2.0</title>
+	<title>Benjamins Demo: DEVELOPMENT</title>
 	
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -17,8 +17,13 @@
 	
 	<!-- [START] Style Dependencies -->
 	<link rel="stylesheet" type="text/css" href="http://registerguard.github.com/bulldog/build/files/css/bulldog.css">
-	<link rel="stylesheet" href="http://advertising.registerguard.com/static/ad_manager/1.0/css/ad_manager.css">
 	<!-- [START] Style Dependencies -->
+	
+	
+	<link rel="stylesheet" href="css/ads.css">
+	
+	
+	
 	
 	<link rel="stylesheet" href="css/demo.css">
 	
@@ -265,13 +270,17 @@
 	<script src="./js/matchMedia.listener.js"></script>
 	<!-- [END] Script Dependencies -->
 	
-	<script src="../benjamins/benjamins.js"></script>
+	
+	<script src="../build/src/benjamins.dev.js"></script>
+	
+	
+	
 	
 	<script>
 		
 		$(document).ready(function() {
 			
-			$.ad_manager({
+			$.fn['benjies']({
 				parent  : 'sports',
 				section : 'football',
 				page    : 'section'

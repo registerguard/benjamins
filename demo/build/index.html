@@ -273,7 +273,7 @@
 	<!-- [END] Script Dependencies -->
 	
 	<!-- @if NODE_ENV == 'DEVELOPMENT' -->
-	<script src="../build/src/benjamins.js"></script>
+	<script src="../build/src/benjamins.dev.js"></script>
 	<!-- @endif -->
 	
 	<!-- @if NODE_ENV == 'PRODUCTION' -->
@@ -284,7 +284,7 @@
 		
 		$(document).ready(function() {
 			
-			$.ad_manager({
+			$.fn['benjies']({
 				parent  : 'sports',
 				section : 'football',
 				page    : 'section'

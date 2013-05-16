@@ -84,12 +84,28 @@ module.exports = function(grunt) {
 				
 			},
 			
+			dev : [
+				
+				'./Gruntfile.js',
+				'./src/<%= pkg.name %>.dev.js'
+				
+			],
+			
+			pro : [
+				
+				'./Gruntfile.js',
+				'./src/<%= pkg.name %>.js'
+				
+			]
+			
+			/*
 			init : [
 				
 				'./Gruntfile.js',
 				'./src/<%= pkg.name %>.js'
 				
 			]
+			*/
 			
 		},
 		
@@ -140,7 +156,7 @@ module.exports = function(grunt) {
 				src : [
 					
 					'../demo/index.html',
-					'../demo/css/**/*'
+					'../demo/css/ads.css'
 					
 				]
 				
@@ -278,8 +294,8 @@ module.exports = function(grunt) {
 	
 	grunt.registerTask('default', ['jshint']);
 	
-	grunt.registerTask('dev', ['jshint', 'env:dev', 'clean:dev', 'less:dev', 'preprocess:dev']);
+	grunt.registerTask('dev', ['jshint:dev', 'env:dev', 'clean:dev', 'less:dev', 'preprocess:dev']);
 	
-	grunt.registerTask('pro', ['jshint', 'env:pro', 'clean:pro', 'uglify:pro', 'less:pro', 'preprocess:pro']);
+	grunt.registerTask('pro', ['jshint:pro', 'env:pro', 'clean:pro', 'uglify:pro', 'less:pro', 'preprocess:pro']);
 	
 };
