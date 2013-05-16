@@ -5,7 +5,7 @@
 .advert {
 	text-align: center; /* Oldschool centering technique. */
 	position: relative; /* Just in case ad decides to `position: absolute;` without a `position: relative;` parent. */
-	margin: .75em auto; /* Putting `auto` here to assist `.advert`s that have a width. */
+	margin: 0 auto; /* Putting `auto` here to assist `.advert`s that have a width. */
 }
 	.advert * {
 		/* http://meyerweb.com/eric/tools/css/reset/ */
@@ -42,7 +42,8 @@
 }
 	.mobile_banner #mobile_banner-top,
 	.mobile_banner #mobile_banner-bottom,
-	.mobile_banner #mobile_banner-no-ros {
+	.mobile_banner #mobile_banner-no-ros,
+	.mobile_banner #mobile_banner-middle {
 		width: 320px; /* Actual ad width. */
 		height: 50px;
 		position: absolute;
