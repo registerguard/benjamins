@@ -181,8 +181,8 @@ caller({
 							"ad_type": [
 								{
 									"height": 90,
-									"name": "Leaderboard 2",
-									"slug": "leaderboard-2",
+									"name": "Leaderboard - Bottom",
+									"slug": "leaderboard-bottom",
 									"tag_type": "<script>",
 									"width": 728,
 									"screen": [
@@ -201,8 +201,8 @@ caller({
 							"ad_type": [
 								{
 									"height": 50,
-									"name": "Mobile Banner 2",
-									"slug": "mobile-banner-2",
+									"name": "Mobile Banner - Bottom",
+									"slug": "mobile-banner-bottom",
 									"tag_type": "<script>",
 									"width": 320,
 									"screen": [

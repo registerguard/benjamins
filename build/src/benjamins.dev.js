@@ -83,11 +83,11 @@
 		
 		init : function(options) {
 			
-			console.log('init called');
-			
 			//----------------------------------
 			// Loop & return each this:
 			//----------------------------------
+			
+			console.log('init called', 'the each below isnt called');
 			
 			return this.each(function() {
 				
