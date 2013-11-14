@@ -24,6 +24,7 @@
 			mobile : {
 				
 				'mobile-banner'      : '#mobile_banner-top',
+				'half-page-1'        : '#half_page_1-mobile',
 				'medium-rectangle-1' : '#medium_rectangle_1-mobile',
 				'medium-rectangle-2' : '#medium_rectangle_2-mobile',
 				'homepage-block-1'   : '#homepage_block_1-mobile',
@@ -37,6 +38,7 @@
 			desktop : {
 				
 				'leaderboard'        : '#leaderboard-top',
+				'half-page-1'        : '#half_page_1-desktop',
 				'medium-rectangle-1' : '#medium_rectangle_1-desktop',
 				'medium-rectangle-2' : '#medium_rectangle_2-desktop',
 				'homepage-block-1'   : '#homepage_block_1-desktop',
